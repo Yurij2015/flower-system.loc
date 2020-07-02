@@ -21,6 +21,7 @@ use Yii;
  * @property Employees $employee
  * @property Products $product
  * @property Sales[] $sales
+ * @property Customer $customer
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -38,7 +39,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Date', 'Customers', 'Users', 'Service', 'Product', 'Employee'], 'required'],
+            [['Date', 'Customers', 'Product', 'Employee'], 'required'],
             [['Date'], 'safe'],
             [['Customers', 'Users', 'Service', 'Count', 'Product', 'Employee'], 'integer'],
             [['Customers'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['Customers' => 'IdCustomer']],
@@ -72,7 +73,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public function getCustomers()
     {
-        return $this->hasOne(Customer::className(), ['IdCustomer' => 'Customer']);
+        return $this->hasOne(Customer::className(), ['IdCustomer' => 'Customers']);
     }
 
     /**

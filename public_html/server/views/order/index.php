@@ -28,12 +28,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'IdOrder',
             'Date',
-            'Customers',
+//            'Customers',
+            [
+                'attribute' => 'Customers',
+                'value' => 'customers.fullName',
+            ],
 //            'Users',
-            'Service',
+//            'Service',
             'Count',
-            'Product',
-            'Employee',
+            [
+                'attribute' => 'Product',
+                'value' => 'product.Name',
+            ],
+//            'Product',
+//            'Employee',
+            [
+                'attribute' => 'Employee',
+                'value' => 'employee.EName',
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

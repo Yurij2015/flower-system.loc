@@ -14,6 +14,7 @@ use Yii;
  * @property string $Address
  * @property string $Phone
  *
+ * @property string $fullName
  * @property Order[] $orders
  */
 class Customer extends \yii\db\ActiveRecord

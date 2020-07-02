@@ -1,5 +1,7 @@
 <?php
 
+use app\models\Employee;
+use app\models\Product;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -15,7 +17,7 @@ use app\models\Customer;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php // $form->field($model, 'Date')->textInput() ?>
+    <?php // echo $form->field($model, 'Date')->textInput() ?>
 
 
     <?=
@@ -28,28 +30,32 @@ use app\models\Customer;
     <?php $customer = Customer::find()->all();
     // поле выбора категории
     $items = ArrayHelper::map($customer, 'IdCustomer', 'fullName');
-
-//    $items = Customer::find()
-//        ->select(['SecondName', 'IdCustomer', 'FirstName'])
-//        ->indexBy('IdCustomer')
-//        ->column();
-
     $params = ['prompt' => 'Выберите клиента']; ?>
-    <?= $form->field($model, 'Customers')->dropDownList($items,  $params); ?>
+    <?= $form->field($model, 'Customers')->dropDownList($items, $params); ?>
 
 
-
-    <?php // $form->field($model, 'Customer')->textInput() ?>
-
+    <?php // echo $form->field($model, 'Customer')->textInput() ?>
     <?php // $form->field($model, 'Users')->textInput() ?>
+    <?php // $form->field($model, 'Service')->textInput() ?>
 
-    <?= $form->field($model, 'Service')->textInput() ?>
 
     <?= $form->field($model, 'Count')->textInput() ?>
 
-    <?= $form->field($model, 'Product')->textInput() ?>
+    <?php $customer = Product::find()->all();
+    // поле выбора категории
+    $items = ArrayHelper::map($customer, 'IdService', 'Name');
+    $params = ['prompt' => 'Выберите товар']; ?>
+    <?= $form->field($model, 'Product')->dropDownList($items, $params); ?>
 
-    <?= $form->field($model, 'Employee')->textInput() ?>
+    <?php // echo $form->field($model, 'Product')->textInput() ?>
+
+    <?php $customer = Employee::find()->all();
+    // поле выбора категории
+    $items = ArrayHelper::map($customer, 'IdEmployee', 'EName');
+    $params = ['prompt' => 'Укажите сотрудника']; ?>
+    <?= $form->field($model, 'Employee')->dropDownList($items, $params); ?>
+
+    <?php // echo $form->field($model, 'Employee')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Save'), ['class' => 'btn btn-success']) ?>
