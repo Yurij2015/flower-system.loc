@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use miloschuman\highcharts\Highcharts;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SalesSearch */
@@ -35,5 +36,26 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
+
+    <?php
+    try {
+        echo Highcharts::widget([
+            'options' => [
+                'title' => ['text' => 'Анализ продаж'],
+                'xAxis' => [
+                    'categories' => ['Январь', 'Февраль', 'Март']
+                ],
+                'yAxis' => [
+                    'title' => ['text' => 'Анализ реализации товаров и услуг']
+                ],
+                'series' => [
+                    ['name' => 'Услуги', 'data' => [101, 100, 84]],
+                    ['name' => 'Товары', 'data' => [123, 177, 133]]
+                ]
+            ]
+        ]);
+    } catch (Exception $e) {
+    }
+    ?>
 
 </div>
