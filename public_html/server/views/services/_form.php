@@ -1,5 +1,7 @@
 <?php
 
+use app\models\SCategory;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -18,7 +20,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'Description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Category')->textInput() ?>
+    <?php $category = Scategory::find()->all();
+    // поле выбора категории
+    $items = ArrayHelper::map($category, 'IdCategory', 'Name');
+    $params = ['prompt' => 'Выберите категорию']; ?>
+    <?= $form->field($model, 'Category')->dropDownList($items, $params); ?>
+
+    <?php // echo $form->field($model, 'Category')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Save'), ['class' => 'btn btn-success']) ?>

@@ -31,12 +31,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'IdOrder',
             'Date',
-            'Customers',
+//            'Customers',
 //            'Users',
 //            'Service',
+            [
+                'attribute' => 'Customers',
+                'value' => $model->customers->fullName,
+            ],
             'Count',
-            'Product',
-            'Employee',
+//            'Product',
+            [
+                'attribute' => 'Product',
+                'value' => $model->product->Name,
+            ],
+
+//            'Employee',
+            [
+                'attribute' => 'Employee',
+                'value' => $model->employee->EName,
+            ],
         ],
     ]) ?>
 

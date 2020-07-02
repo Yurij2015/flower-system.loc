@@ -1,5 +1,7 @@
 <?php
 
+use app\models\Order;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
@@ -24,7 +26,13 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'Status')->textInput() ?>
 
-    <?= $form->field($model, 'Order')->textInput() ?>
+    <?php //echo $form->field($model, 'Order')->textInput() ?>
+
+    <?php $customer = Order::find()->all();
+    // поле выбора категории
+    $items = ArrayHelper::map($customer, 'IdOrder', 'IdOrder');
+    $params = ['prompt' => 'Выберите номер заказа']; ?>
+    <?= $form->field($model, 'Order')->dropDownList($items, $params); ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Save'), ['class' => 'btn btn-success']) ?>

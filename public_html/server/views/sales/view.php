@@ -6,14 +6,14 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Sales */
 
-$this->title = $model->IdSale;
+$this->title = "Номер продажи: " . $model->IdSale;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'Sales'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="sales-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php // echo Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Update'), ['update', 'id' => $model->IdSale], ['class' => 'btn btn-primary']) ?>

@@ -42,24 +42,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-    try {
-        echo Highcharts::widget([
-            'options' => [
-                'title' => ['text' => 'Анализ продаж'],
-                'xAxis' => [
-                    'categories' => ['Январь', 'Февраль', 'Март']
-                ],
-                'yAxis' => [
-                    'title' => ['text' => 'Анализ реализации товаров и услуг']
-                ],
-                'series' => [
-                    ['name' => 'Услуги', 'data' => [101, 100, 84]],
-                    ['name' => 'Товары', 'data' => [123, 177, 133]]
-                ]
-            ]
-        ]);
-    } catch (Exception $e) {
-    }
-    ?>
+//    try {
+//        echo Highcharts::widget([
+//            'options' => [
+//                'title' => ['text' => 'Анализ продаж'],
+//                'xAxis' => [
+//                    'categories' => ['Январь', 'Февраль', 'Март']
+//                ],
+//                'yAxis' => [
+//                    'title' => ['text' => 'Анализ реализации товаров и услуг']
+//                ],
+//                'series' => [
+//                    ['name' => 'Услуги', 'data' => [101, 100, 84]],
+//                    ['name' => 'Товары', 'data' => [123, 177, 133]]
+//                ]
+//            ]
+//        ]);
+//    } catch (Exception $e) {
+//    }
+//    ?>
 
 </div>
