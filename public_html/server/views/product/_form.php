@@ -1,7 +1,10 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\PCategory;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -18,7 +21,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'Description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Pcategory')->textInput() ?>
+    <?php $category = Pcategory::find()->all();
+    // поле выбора категории
+    $items = ArrayHelper::map($category, 'IdCategory', 'Name');
+    $params = ['prompt' => 'Выберите категорию']; ?>
+    <?= $form->field($model, 'Pcategory')->dropDownList($items, $params); ?>
+
+    <?php // $form->field($model, 'Pcategory')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Save'), ['class' => 'btn btn-success']) ?>

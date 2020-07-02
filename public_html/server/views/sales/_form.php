@@ -21,19 +21,6 @@ use kartik\date\DatePicker;
     ]);
     ?>
 
-    <?=
-     DatePicker::widget([
-        'name' => 'check_issue_date',
-        'value' => date('d-M-Y', strtotime('+2 days')),
-        'options' => ['placeholder' => 'Select issue date ...'],
-        'pluginOptions' => [
-            'format' => 'dd-mm-yyyy',
-            'todayHighlight' => true
-        ]
-    ]);
-    ?>
-
-    <?= $form->field($model, 'Date')->textInput() ?>
 
     <?= $form->field($model, 'Status')->textInput() ?>
 

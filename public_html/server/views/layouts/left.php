@@ -45,6 +45,8 @@ use yii\helpers\Html;
                     ['label' => Yii::t('translate', 'S Categories'), 'url' => ['/s-category']],
                     ['label' => Yii::t('translate', 'Services'), 'url' => ['/services']],
                     ['label' => Yii::t('translate', 'Sales'), 'url' => ['/sales']],
+                    ['label' => Yii::t('translate', 'Analyses'), 'url' => ['/analyse']],
+
 
 
 //                    ['label' => 'Войти', 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],

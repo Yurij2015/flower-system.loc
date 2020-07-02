@@ -6,14 +6,14 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Customer */
 
-$this->title = $model->IdCustomer;
+$this->title = $model->FirstName . " " . $model->SecondName;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'Customers'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="customer-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php // echo Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Update'), ['update', 'id' => $model->IdCustomer], ['class' => 'btn btn-primary']) ?>

@@ -14,7 +14,7 @@ use Yii;
  * @property string $Address
  * @property string $Phone
  *
- * @property Orders[] $orders
+ * @property Order[] $orders
  */
 class Customer extends \yii\db\ActiveRecord
 {
@@ -39,6 +39,13 @@ class Customer extends \yii\db\ActiveRecord
         ];
     }
 
+    /* @return string User full name
+     */
+    public function getFullName()
+    {
+        return $this->FirstName . ' ' . $this->SecondName;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -61,6 +68,6 @@ class Customer extends \yii\db\ActiveRecord
      */
     public function getOrders()
     {
-        return $this->hasMany(Orders::className(), ['Customers' => 'IdCustomer']);
+        return $this->hasMany(Order::className(), ['Customers' => 'IdCustomer']);
     }
 }

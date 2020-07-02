@@ -6,14 +6,14 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Employee */
 
-$this->title = $model->Name;
+$this->title = $model->EName;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'Employees'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="employee-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php // Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Update'), ['update', 'id' => $model->IdEmployee], ['class' => 'btn btn-primary']) ?>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'IdEmployee',
-            'Name',
+            'EName',
             'Phone',
             'Position',
         ],

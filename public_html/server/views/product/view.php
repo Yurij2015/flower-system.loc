@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php //echo Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Update'), ['update', 'id' => $model->IdService], ['class' => 'btn btn-primary']) ?>

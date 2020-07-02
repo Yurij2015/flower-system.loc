@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php // Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Create Order'), ['create'], ['class' => 'btn btn-success']) ?>
@@ -29,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'IdOrder',
             'Date',
             'Customers',
-            'Users',
+//            'Users',
             'Service',
-            //'Count',
-            //'Product',
-            //'Employee',
+            'Count',
+            'Product',
+            'Employee',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

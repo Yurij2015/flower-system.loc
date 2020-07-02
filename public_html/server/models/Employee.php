@@ -8,11 +8,11 @@ use Yii;
  * This is the model class for table "employees".
  *
  * @property int $IdEmployee
- * @property string|null $Name
+ * @property string|null $EName
  * @property string|null $Phone
  * @property string|null $Position
  *
- * @property Orders[] $orders
+ * @property Order[] $orders
  */
 class Employee extends \yii\db\ActiveRecord
 {
@@ -30,7 +30,7 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Name', 'Position'], 'string', 'max' => 45],
+            [['EName', 'Position'], 'string', 'max' => 45],
             [['Phone'], 'string', 'max' => 25],
         ];
     }
@@ -42,7 +42,7 @@ class Employee extends \yii\db\ActiveRecord
     {
         return [
             'IdEmployee' => Yii::t('translate', 'Id Employee'),
-            'Name' => Yii::t('translate', 'Name'),
+            'EName' => Yii::t('translate', 'EName'),
             'Phone' => Yii::t('translate', 'Phone'),
             'Position' => Yii::t('translate', 'Position'),
         ];
@@ -55,6 +55,6 @@ class Employee extends \yii\db\ActiveRecord
      */
     public function getOrders()
     {
-        return $this->hasMany(Orders::className(), ['Employee' => 'IdEmployee']);
+        return $this->hasMany(Order::className(), ['Employee' => 'IdEmployee']);
     }
 }

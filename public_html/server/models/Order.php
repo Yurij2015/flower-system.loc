@@ -72,7 +72,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public function getCustomers()
     {
-        return $this->hasOne(Customers::className(), ['IdCustomer' => 'Customers']);
+        return $this->hasOne(Customer::className(), ['IdCustomer' => 'Customer']);
     }
 
     /**
@@ -92,7 +92,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public function getEmployee()
     {
-        return $this->hasOne(Employees::className(), ['IdEmployee' => 'Employee']);
+        return $this->hasOne(Employee::className(), ['IdEmployee' => 'Employee']);
     }
 
     /**
@@ -102,7 +102,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public function getProduct()
     {
-        return $this->hasOne(Products::className(), ['IdService' => 'Product']);
+        return $this->hasOne(Product::className(), ['IdService' => 'Product']);
     }
 
     /**

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="customer-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php // Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Create Customer'), ['create'], ['class' => 'btn btn-success']) ?>
@@ -25,14 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'IdCustomer',
+//            'IdCustomer',
             'SecondName',
             'FirstName',
             'MiddleName',
             'Address',
-            //'Phone',
-
+            'Phone',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
